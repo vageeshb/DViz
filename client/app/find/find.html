@@ -3,15 +3,25 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4">
-      <span class="label label-default">Latitude</span>
+      <!-- <span class="label label-default">Latitude</span>
       <input type="text" name="latitude" id="inputLatitude" class="form-control"  title="Latitude" ng-model='lat'>
-
+      
       <span class="label label-default">Longitude</span>
       <input type="text" name="latitude" id="inputLongitude" class="form-control"  title="Longitude" ng-model='lng'>
-
+      
       <span class="label label-default">Zoom</span>
-      <input type="text" name="latitude" id="inputZoom" class="form-control"  title="Zoom" ng-model='zoom'>
-      <button ng-click='updateMap()'>Update</button>
+      <input type="text" name="latitude" id="inputZoom" class="form-control"  title="Zoom" ng-model='zoom'> -->
+
+      <select name="pref1" id="inputPref1" class="form-control" required="required" ng-model='pref1'>
+        <option ng-repeat="comm in communities">{{comm}}</option>
+      </select>
+      <select name="pref2" id="inputPref2" class="form-control" required="required" ng-model='pref2'>
+        <option ng-repeat="comm in communities">{{comm}}</option>
+      </select>
+      <select name="pref3" id="inputPref3" class="form-control" required="required" ng-model='pref3'>
+        <option ng-repeat="comm in communities">{{comm}}</option>
+      </select>
+      <button ng-click='getReco()'>Update</button>
     </div>
     <div class="col-md-8">
       <div class="row">

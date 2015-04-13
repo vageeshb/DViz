@@ -6,6 +6,11 @@ angular.module('dvizApp')
       .state('find', {
         url: '/find',
         templateUrl: 'app/find/find.html',
-        controller: 'FindCtrl'
+        controller: 'FindCtrl',
+        resolve: {
+          communities: ['Community', function (Community) {
+            return Community.list();
+          }]
+        }
       });
   });
