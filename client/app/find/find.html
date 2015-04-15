@@ -1,37 +1,35 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <!-- <span class="label label-default">Latitude</span>
-      <input type="text" name="latitude" id="inputLatitude" class="form-control"  title="Latitude" ng-model='lat'>
-      
-      <span class="label label-default">Longitude</span>
-      <input type="text" name="latitude" id="inputLongitude" class="form-control"  title="Longitude" ng-model='lng'>
-      
-      <span class="label label-default">Zoom</span>
-      <input type="text" name="latitude" id="inputZoom" class="form-control"  title="Zoom" ng-model='zoom'> -->
-
-      <select name="pref1" id="inputPref1" class="form-control" required="required" ng-model='pref1'>
-        <option ng-repeat="comm in communities">{{comm}}</option>
-      </select>
-      <select name="pref2" id="inputPref2" class="form-control" required="required" ng-model='pref2'>
-        <option ng-repeat="comm in communities">{{comm}}</option>
-      </select>
-      <select name="pref3" id="inputPref3" class="form-control" required="required" ng-model='pref3'>
-        <option ng-repeat="comm in communities">{{comm}}</option>
-      </select>
-      <button ng-click='getReco()'>Update</button>
+<div id="find-page" class="container">
+  <aside>
+    <weight-polygon weight="weight"></weight-polygon>
+    <button class="btn btn-primary" ng-click='getReco()'>Update</button>
+    <div class="col-md-12">
+      <h2>Reco list</h2>
+      <div class="row" ng-repeat="r in results | limitTo: limit">
+        <div class="col-md-12 text-left">
+          <h4>{{ r.name }}</h4>
+          <p>{{ r.full_address }}</p>
+          <p>Ratings: {{ r.stars }}</p>
+        </div>
+      </div>
     </div>
-    <div class="col-md-8">
-      <div class="row">
-        <div class="col-md-12">
-          <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
-        </div>
-        <div class="col-md-12">
-          <h2>Reco list</h2>
-        </div>
+  </aside>
+  <div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+          <ui-gmap-markers models="markers" coords="'coords'" icon="'icon'" options="'options'" click="'onClick'">
+            <ui-gmap-windows show="show">
+              <div ng-non-bindable>
+                {{misc.title}} - {{misc.name}}
+              </div>
+            </ui-gmap-windows>
+          </ui-gmap-markers>
+        </ui-gmap-google-map>
+      </div>
     </div>
   </div>
 </div>
+
 <div ng-include="'components/footer/footer.html'"></div>

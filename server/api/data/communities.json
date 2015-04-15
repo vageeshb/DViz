@@ -1,103 +1,13 @@
 {
-    id: 0,
-    list: [
-        "Indonesian",
-        "Belgian",
-        "Polish",
-        "Modern European",
-        "Cantonese",
-        "Cajun/Creole",
-        "Russian",
-        "French",
-        "Cuban",
-        "Ethiopian",
-        "Filipino",
-        "Spanish"
-    ]
+  name: "Services"
+},{
+  name: "Asian"
 }, {
-    id: 1,
-    list: [
-        "Brazilian",
-        "American (Traditional)",
-        "Salvadoran",
-        "Irish",
-        "American (New)",
-        "Latin American",
-        "British"
-    ]
+  name: "European"
 }, {
-    id: 2,
-    list: [
-        "Indian",
-        "Vietnamese",
-        "Chinese",
-        "Pakistani",
-        "Japanese",
-        "Korean",
-        "Afghan",
-        "Szechuan",
-        "Thai",
-        "Caribbean",
-        "Asian Fusion",
-        "Dominican",
-        "Mongolian",
-        "Hawaiian",
-        "Laotian"
-    ]
+  name: "Mediterranean"
 }, {
-    id: 3,
-    list: [
-        "Hotels",
-        "Event Planning & Services",
-        "Home Services",
-        "Party & Event Planning",
-        "Venues & Event Spaces",
-        "Caterers",
-        "Food Stands",
-        "Real Estate",
-        "Personal Chefs",
-        "Hotels & Travel",
-        "Shared Office Spaces"
-    ]
+  name: "US/American"
 }, {
-    id: 4,
-    list: [
-        "Live/Raw Food",
-        "African",
-        "Middle Eastern",
-        "Southern",
-        "Mediterranean",
-        "Greek",
-        "Persian/Iranian",
-        "Moroccan"
-    ]
-}, {
-    id: 5,
-    list: [
-        "Italian",
-        "Jewish"
-    ]
-}, {
-    id: 6,
-    list: [
-        "Tex-Mex",
-        "Mexican",
-        "Fast Food",
-        "Burgers"
-    ]
-}, {
-    id: 7,
-    list: [
-        "German"
-    ]
-}, {
-    id: 8,
-    list: [
-        "Cambodian"
-    ]
-}, {
-    id: 9,
-    list: [
-        "Peruvian"
-    ]
+  name: "Italian"
 }

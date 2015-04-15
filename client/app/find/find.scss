@@ -1,3 +1,35 @@
-.angular-google-map-container { 
-  height: 400px; 
+#find-page {
+  padding: 0;
+  position: relative;
+  height: calc(100% - 100px);
+  .marker-labels {
+    padding: 5px;
+  }
+  aside
+  {
+    position: absolute;
+    width: 35%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #4D394B;
+    display: inline-block;
+    svg {
+      background: #4D394B;
+      text {
+        fill: white;
+      }
+    }
+  }
+  .content {
+    position: absolute;
+    width: 65%;
+    height: 100%;
+    top: 0;
+    left: 35%;
+    display: inline-block;
+    div.row, div[class^="col"], .angular-google-map, .angular-google-map-container {
+      height: 100%;
+    }
+  }
 }

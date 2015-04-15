@@ -2,4 +2,5 @@
 
 angular.module('dvizApp')
   .controller('MainCtrl', function ($scope, $http) {
+    
   });

@@ -17,7 +17,8 @@ angular.module('dvizApp')
         method: 'POST',
         params: {
           controller: 'getReco'
-        }
+        },
+        isArray: true
       }
     });
   });
