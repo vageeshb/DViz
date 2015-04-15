@@ -2,16 +2,20 @@
 
 <div id="find-page" class="container">
   <aside>
-    <weight-polygon weight="weight"></weight-polygon>
-    <button class="btn btn-primary" ng-click='getReco()'>Update</button>
-    <div class="col-md-12">
-      <h2>Reco list</h2>
-      <div class="row" ng-repeat="r in results | limitTo: limit">
-        <div class="col-md-12 text-left">
-          <h4>{{ r.name }}</h4>
-          <p>{{ r.full_address }}</p>
-          <p>Ratings: {{ r.stars }}</p>
-        </div>
+    <div class="controls" ng-class="collapse ? 'collapse' : ''">
+      <div class="user-controls">
+        <weight-polygon weight="weight"></weight-polygon>
+        <button class="btn btn-primary" ng-click='getReco()'>Update</button>
+      </div>
+      <div class="back" ng-click="collapse = !collapse" ng-show="collapse">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </div>
+    </div>
+    <div class="list" ng-class="collapse ? 'expand' : ''">
+      <div ng-repeat="r in results | limitTo: limit">
+        <h4>{{ r.name }}</h4>
+        <p>{{ r.full_address }}</p>
+        <p>Ratings: {{ r.stars }} <span ng-if="r.checkin_count">Checkins: {{r.checkin_count}}</span></p>
       </div>
     </div>
   </aside>

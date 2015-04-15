@@ -18,7 +18,8 @@ var RestaurantSchema = new Schema({
   stars: Number,
   latitude: Number,
   attributes: Object,
-  type: String
+  type: String,
+  checkin_count: Number
 });
 
 // Public profile information

@@ -3,8 +3,8 @@
 angular.module('dvizApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
-      'title': 'Home',
-      'link': '/'
+      'title': 'Find me food!',
+      'link': '/find'
     }];
 
     $scope.isCollapsed = true;

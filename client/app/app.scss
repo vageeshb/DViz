@@ -30,9 +30,21 @@ html, body, #main {
 }
 body {
   font-family: 'Source Sans Pro', sans-serif;
+  background: darken(#5c4459, 10%);
+  color: white;
 }
 .navbar {
   margin-bottom: 0;
+  background: darken(#5c4459, 10%);
+  border-bottom: 1px solid darken(#5c4459, 20%);
+  a {
+    color: white!important;
+  }
+  li.active {
+    a {
+      background-color: darken(#5c4459, 15%) !important;
+    }
+  }
 }
 footer {
   position: absolute;
@@ -42,4 +54,10 @@ footer {
   left: 0;
   text-align: center;
   padding-top: 20px;
+  background: darken(#5c4459, 10%);
+  color: white;
+  border-top: 1px solid darken(#5c4459, 20%);
+  a {
+    color: white!important;
+  }
 }

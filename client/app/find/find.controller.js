@@ -4,6 +4,7 @@ angular.module('dvizApp')
   .controller('FindCtrl', ['$scope', 'uiGmapGoogleMapApi', 'communities', 'Community', 
     function ($scope, uiGmapGoogleMapApi, communities, Community) {
       $scope.limit = 10;
+      $scope.collapse = false;
       $scope.weight = {
         european: 0,
         american: 0,
@@ -40,6 +41,7 @@ angular.module('dvizApp')
           var results = resp;
           $scope.results = results
           $scope.markers = [];
+          $scope.collapse = true;
           results.forEach(function (r, index) {
             if(index > $scope.limit)
               return;
@@ -49,6 +51,7 @@ angular.module('dvizApp')
                 latitude: r.latitude,
                 longitude: r.longitude
               },
+              //icon: goldStar,
               misc: {
                 title: r.name,
                 name: 'aa'
@@ -63,6 +66,7 @@ angular.module('dvizApp')
               angular.forEach($scope.markers,function(marker){
                 marker.events = {};
               });
+
             }
           });
         });

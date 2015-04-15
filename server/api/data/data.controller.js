@@ -21,7 +21,7 @@ exports.getReco = function(req, res) {
   weights = [],
   maxSet = 120;
 
-  if(tw != 0)
+  if(tw != 0) {
     weights.push({
       name: 'European',
       value: w.european / tw
@@ -41,6 +41,8 @@ exports.getReco = function(req, res) {
       name: 'Services',
       value: (w.services / tw)
     });
+    weights.sort(function(a, b) {return b.value - a.value});
+  }
   else
     weights.push({
       name: 'European',
@@ -62,7 +64,6 @@ exports.getReco = function(req, res) {
       value: 1/6
     });
   
-  weights.sort(function(a, b) {return b.value - a.value});
   var resultList = [];
   weights.forEach(function (w, index) {
     var k = (w.value == 0) ? 0 : Math.ceil(maxSet * w.value);

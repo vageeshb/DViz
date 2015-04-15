@@ -12,10 +12,62 @@
     height: 100%;
     top: 0;
     left: 0;
-    background: #4D394B;
+    background: #5c4459;
     display: inline-block;
-    svg {
+    .controls, .list {
+      max-height: 100%;
+    }
+    .controls {
+      display: inline-block;
+      
+      width: 100%;
+      height: 100%;
+      button {
+        margin: 0 auto;
+        display: block;
+      }
+      &.collapse {
+        width: 5%;
+        float: left;
+        .user-controls {
+          display: none;
+        }
+        .back {
+          height: 100%;
+          background: #5c4459;
+          padding: 10px 0;
+          color: white;
+          span {
+            position: absolute;
+            margin-top: 55%;
+            width: 5%;
+            text-align: center;
+          }
+          &:hover {
+            background: lighten(#5c4459, 10%);
+          }
+        }
+      }
+    }
+    .list {
+      display: none;
+      color: white;
       background: #4D394B;
+      overflow: auto;
+      &.expand {
+        display: inline-block;
+        width: 95%;
+        float: left;
+      }
+      div {
+        padding: 5px 10px;
+      }
+      div:hover {
+        background: lighten(#4D394B, 15%);
+      }
+    }
+    svg {
+      background: #5c4459;
       text {
         fill: white;
       }
