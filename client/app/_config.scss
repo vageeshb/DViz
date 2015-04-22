@@ -1,0 +1,50 @@
+// _config.scss
+$colors: (
+  white: #FFF,
+  black: #111111,
+  lightGray: #F5F6F7,
+  mediumGray: #999999,
+  darkGray: #777777,
+  blue: #69D2E7,
+  lightBlue: #A7DBD8,
+  lightOrange: #F38630,
+  orange: #FA6900,
+  green: #2ecc71,
+  darkGreen: #27ae60,
+  red: #e74c3c,
+  darkRed: #c0392b,
+
+  primary: #5c4459, //orange
+  tertiary: #453744,
+
+  primaryLinkColor: #537DBE, //blue
+
+  headPrimary: #F16654, //orange
+  
+  textPrimary: #404041,
+  textSecondary: #58585b,
+  textTertiary: #808284,
+
+  btnPrimary: #F16654,
+  btnSecondary: #e5e5e5,
+
+  inpPrimary: #e6e7e8,
+  inpBorder: #5191cd,
+
+  sidebarPrimary: #453744, //purple
+  sidebarSecondary: #F16654,
+  sidebarText: rgba(255,255,255, 0.6),
+  sidebarTextHover: rgba(255,255,255, 1),
+
+  shadow: rgba(0,0,0, 0.1),
+  shadowHover: rgba(0,0,0, 0.15),
+);
+
+$fs: (
+  title: 24px,
+  sectionHead: 21px,
+  textHead: 18px,
+  text: 16px,
+  tertiary: 12px,
+  textNav: 16px
+);

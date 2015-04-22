@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('dvizApp')
-  .controller('FindCtrl', ['$scope', 'uiGmapGoogleMapApi', 'communities', 'Community', 
-    function ($scope, uiGmapGoogleMapApi, communities, Community) {
+  .controller('FindCtrl', ['$scope', 'uiGmapGoogleMapApi', 'communities', 'Data', 
+    function ($scope, uiGmapGoogleMapApi, communities, Data) {
       $scope.limit = 10;
       $scope.collapse = false;
       $scope.weight = {
@@ -25,6 +25,28 @@ angular.module('dvizApp')
         }, 
         zoom: $scope.zoom
       };
+      $scope.model = {};
+
+      $scope.greaterThan = function(prop, val){
+        return function(item){
+          return item[prop] > val;
+        }
+      };
+
+      $scope.toggleCollapse = function () {
+        $scope.collapse = !$scope.collapse;
+        $scope.model = {};
+      }
+
+      $scope.showFrame = function(model) {
+        Data.comments({ id: model.business_id }, function (data) {
+          $scope.model = model;
+          $scope.reviews = data;
+        }, function(err) {
+          console.log('error');
+        });
+      };
+
       var goldStar = {
         path: 'M 125,5 155,90 245,90 175,145 200,230 125,180 50,230 75,145 5,90 95,90 z',
         fillColor: 'yellow',
@@ -35,7 +57,7 @@ angular.module('dvizApp')
       };
       
       $scope.getReco = function(){ 
-        Community.getReco({
+        Data.getReco({
           weight: $scope.weight
         }, function (resp) {
           var results = resp;

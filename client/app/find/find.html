@@ -7,32 +7,32 @@
         <weight-polygon weight="weight"></weight-polygon>
         <button class="btn btn-primary" ng-click='getReco()'>Update</button>
       </div>
-      <div class="back" ng-click="collapse = !collapse" ng-show="collapse">
+      <div class="back" ng-click="toggleCollapse()" ng-show="collapse">
         <span class="glyphicon glyphicon-chevron-left"></span>
       </div>
     </div>
     <div class="list" ng-class="collapse ? 'expand' : ''">
-      <div ng-repeat="r in results | limitTo: limit">
+      <div class="filters">
+        <slider ng-model="checkinSliderValue" min="0" step="5" max="100" value="0" ></slider>
+      </div>
+      <div class="result" ng-repeat="r in results | filter: greaterThan('checkin_count', checkinSliderValue) | limitTo: limit" ng-click="showFrame(r)">
         <h4>{{ r.name }}</h4>
         <p>{{ r.full_address }}</p>
-        <p>Ratings: {{ r.stars }} <span ng-if="r.checkin_count">Checkins: {{r.checkin_count}}</span></p>
+        <p><star-rating stars="r.stars"></star-rating> <span ng-if="r.checkin_count">Checkins: {{r.checkin_count}}</span></p>
       </div>
     </div>
+    <detail-frame model="model" reviews="reviews"></detail-frame>
   </aside>
   <div class="content">
-    <div class="row">
-      <div class="col-md-12">
-        <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-          <ui-gmap-markers models="markers" coords="'coords'" icon="'icon'" options="'options'" click="'onClick'">
-            <ui-gmap-windows show="show">
-              <div ng-non-bindable>
-                {{misc.title}} - {{misc.name}}
-              </div>
-            </ui-gmap-windows>
-          </ui-gmap-markers>
-        </ui-gmap-google-map>
-      </div>
-    </div>
+    <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+      <ui-gmap-markers models="markers" coords="'coords'" icon="'icon'" options="'options'" click="'onClick'">
+        <ui-gmap-windows show="show">
+          <div ng-non-bindable>
+            {{misc.title}} - {{misc.name}}
+          </div>
+        </ui-gmap-windows>
+      </ui-gmap-markers>
+    </ui-gmap-google-map>
   </div>
 </div>
 

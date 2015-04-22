@@ -1,0 +1,91 @@
+#frame {
+  position: absolute;
+  top: 0;
+  left: 90%;
+  width: 110%;
+  z-index: 10000;
+  padding: 15px;
+  height: calc(100vh - 100px);
+  background-color: darken(color(primary), 15%) !important;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  .close {
+    position:  absolute;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: color(white);
+  }
+  .categories {
+    span {
+      font-size: fs(tertiary);
+      margin-right: 5px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  .reviews {
+    .nav-tabs {
+      border-bottom: 1px solid color(primary);
+      padding-bottom: 2px;
+      margin-bottom: 10px;
+      li {
+        a {
+          border-radius: 0;
+          color: color(white);
+          background: darken(color(primary), 15%);
+          border-color: darken(color(primary), 15%);
+          padding: 5px 10px;
+          &:hover {
+            cursor: pointer;
+            background: darken(color(primary), 5%);
+            border-color: darken(color(primary), 5%);
+          }
+        }
+        &.active {
+          a {
+            font-weight: bold;
+            border-color: lighten(color(primary), 10%);
+            background: lighten(color(primary), 10%);
+          }
+        }
+      }
+    }
+    .review {
+      padding: 5px;
+      padding-bottom: 35px;
+      border-bottom: 1px solid color(primary);
+      cursor: pointer;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &:hover {
+        background-color: darken(color(primary), 10%) !important;
+      }
+      .meta {
+        .date {
+          float: right;
+        }
+      }
+      .text {
+        margin-top: 10px;
+        height: 38px;
+        overflow: hidden;
+        &.show {
+          overflow: visible;
+          height: auto;
+        }
+      }
+      a {
+        margin-top: 10px;
+        float: right;
+        color: color(white);
+        font-weight: bold;
+      }
+    }
+  }
+}

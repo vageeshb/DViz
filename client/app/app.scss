@@ -17,11 +17,15 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 
 // Component styles are injected through grunt
 // injector
+@import '_config.scss';
+@import '_functions.scss';
 @import 'account/login/login.scss';
 @import 'admin/admin.scss';
 @import 'find/find.scss';
 @import 'main/main.scss';
+@import 'detail-frame/detail-frame.scss';
 @import 'modal/modal.scss';
+@import 'star/star.scss';
 @import 'weight-polygon/weight-polygon.scss';
 // endinjector
 
@@ -45,6 +49,9 @@ body {
       background-color: darken(#5c4459, 15%) !important;
     }
   }
+}
+i[class*='star'] {
+  color: gold;
 }
 footer {
   position: absolute;

@@ -8,8 +8,8 @@ angular.module('dvizApp')
         templateUrl: 'app/find/find.html',
         controller: 'FindCtrl',
         resolve: {
-          communities: ['Community', function (Community) {
-            return Community.list();
+          communities: ['Data', function (Data) {
+            return Data.list();
           }]
         }
       });

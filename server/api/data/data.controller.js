@@ -4,13 +4,40 @@ var _                 = require('lodash');
 var Community         = require('./community.model');
 var SortedRestaurants = require('./sorted.model');
 var Restaurant        = require('./restaurant.model');
+var Review        = require('./review.model');
 
 // Get list of communities
 exports.communities = function(req, res) {
   Community.find({}, '-_id', function (err, communities) {
     if(err) { return handleError(res, err); }
-    var list = [];
     res.json(communities);
+  });
+};
+
+// Get Reviews for a restaurant
+exports.reviews = function(req, res) {
+  var business_id = req.params.id;
+  Review.find({ business_id: business_id }, '-_id', {
+    skip: 0, // Starting Row
+    limit: 10, // Ending Row
+    sort: {
+      date: -1 //Sort by Stars
+    }, 
+  }, function (err, recentReviews) {
+    if(err) { return handleError(res, err); }
+    Review.find({ business_id: business_id }, '-_id', {
+      skip: 0, // Starting Row
+      limit: 10, // Ending Row
+      sort: {
+        stars: -1 //Sort by Stars
+      }, 
+    }, function (err, topReviews) {
+      if(err) { return handleError(res, err); }
+      res.json({
+        top: topReviews,
+        recent: recentReviews
+      });
+    });
   });
 };
 

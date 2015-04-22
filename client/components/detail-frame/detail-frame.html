@@ -1,0 +1,51 @@
+<div ng-if="!isEmpty(model)" id="frame">
+  <a href ng-click="close()" class="close">X</a>
+  <h4>
+    {{ model.name }}
+  </h4>
+  <p>{{ model.full_address }}</p>
+  <p class="categories">
+    <span ng-repeat=" c in model.categories ">{{ c }}</span>
+  </p>
+  <!-- <ul class="attributes">
+    <li ng-repeat="(k, v) in model.attributes">
+      {{k}} : <span class="glyphicon" ng-class="{ 'glyphicon-ok' : v==true, 'glyphicon-remove' : v==false }"></span>
+    </li>
+  </ul> -->
+  <div class="reviews">
+    <tabset>
+      <tab heading="Top Reviews">
+        <div class="review" ng-click="show = !show" ng-repeat="r in reviews.top">
+          <div class="meta">
+            <star-rating stars="r.stars"></star-rating>
+            <span class="date">{{ r.date }}</span>
+          </div>
+          <div class="text" ng-class="{ show: show }">
+            {{ r.text }}
+          </div>
+          <a href ng-click="show = !show">
+            <span ng-if="show == false">Show More</span>
+            <span ng-if="show == true">Show Less</span>
+          </a>
+        </div>
+      </tab>
+      <tab heading="Recent Reviews">
+        <div class="review" ng-click="show = !show" ng-repeat="r in reviews.recent">
+          <div class="meta">
+            <star-rating stars="r.stars"></star-rating>
+            <span class="date">{{ r.date }}</span>
+          </div>
+          <div class="text" ng-class="{ show: show }">
+            {{ r.text }}
+          </div>
+          <a href ng-click="show = !show">
+            <span ng-if="show == false">Show More</span>
+            <span ng-if="show == true">Show Less</span>
+          </a>
+        </div>
+      </ul>
+      </tab>
+      <tab heading="Similar Restaurants">Placeholder</tab>
+    </tabset>
+  </div>
+</div>

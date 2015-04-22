@@ -37,6 +37,7 @@
           background: #5c4459;
           padding: 10px 0;
           color: white;
+          cursor: pointer;
           span {
             position: absolute;
             margin-top: 55%;
@@ -59,11 +60,19 @@
         width: 95%;
         float: left;
       }
-      div {
+      .result {
         padding: 5px 10px;
+        cursor: pointer;
+        &:hover {
+          background: lighten(#4D394B, 15%);
+        }
       }
-      div:hover {
-        background: lighten(#4D394B, 15%);
+      .filters {
+        border-bottom: 1px solid darken(#4D394B, 10%);
+        padding: 10px 0;
+        .slider {
+          max-width: 20%;
+        }
       }
     }
     svg {
@@ -79,6 +88,7 @@
     height: 100%;
     top: 0;
     left: 35%;
+    padding: 0;
     display: inline-block;
     div.row, div[class^="col"], .angular-google-map, .angular-google-map-container {
       height: 100%;
