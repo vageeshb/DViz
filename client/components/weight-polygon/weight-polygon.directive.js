@@ -13,7 +13,7 @@ angular.module('dvizApp')
         var minLengthToCenter = 50
         var max = boxSize / 2;
         var margin = {top: 25, right: 25, bottom: 30, left: 25};
-        var labelEnum = ["European", "American", "Medeterranian", "Asian", "Italian", "Misc"];
+        var labelEnum = ["European", "American", "Mediterranean", "Asian", "Italian", "Misc"];
         
         var weightEuropean = 0
         var weightUs = 0
@@ -223,8 +223,9 @@ angular.module('dvizApp')
         sY = boxSize / 2 + minLengthToCenter * Math.sin(5 * Math.PI/6);
 
         drawPolygon(boxSize/2, '#e74c3c', 0.4);
+        //
         drawPolygon(boxSize/2.5, '#e67e22', 0.4);
-        drawPolygon(boxSize/3.25, '#2ecc71', 0.4);
+        drawPolygon(boxSize/3.25, '#C5EF4B', 0.4);
         drawPolygon(minLengthToCenter, 'white', 0.7);
 
         drawPolygon(boxSize/2, '#e74c3c', 0.4, true);

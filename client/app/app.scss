@@ -68,3 +68,22 @@ footer {
     color: white!important;
   }
 }
+
+.btn-primary {
+  background: color(secondary);
+  border-color: color(secondary);
+  &:hover {
+    background: darken(color(secondary), 10%);
+    border-color: darken(color(secondary), 10%);
+  }
+}
+
+.top-nav {
+  a {
+    display: inline-block!important;
+  }
+  span {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}

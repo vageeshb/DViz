@@ -5,6 +5,7 @@ var mongoose = require('mongoose'),
 
 var ReviewSchema = new Schema({
   user_id: String,
+  name: String,
   review_id: String,
   business_id: String,
   stars: Number,

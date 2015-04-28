@@ -4,7 +4,8 @@ var _                 = require('lodash');
 var Community         = require('./community.model');
 var SortedRestaurants = require('./sorted.model');
 var Restaurant        = require('./restaurant.model');
-var Review        = require('./review.model');
+var Review            = require('./review.model');
+var alsoWentHere      = require('./sortedAlsoWentHere.model');
 
 // Get list of communities
 exports.communities = function(req, res) {
@@ -36,6 +37,23 @@ exports.reviews = function(req, res) {
       res.json({
         top: topReviews,
         recent: recentReviews
+      });
+    });
+  });
+};
+
+// Get Also Went Here
+exports.alsoWentHere = function(req, res) {
+  var id = req.params.id;
+  alsoWentHere.findOne({ id: id }, function (err, also) {
+    if(err) { return handleError(res, err); }
+    var result = [];
+    also.list.forEach(function (business_id, index) {
+      Restaurant.findOne({ business_id: business_id }, '-_id', function (err, rest) {
+        if(err) { return handleError(res, err); }
+        result.push(rest);
+        if(index == also.list.length - 1)
+          res.json(result);
       });
     });
   });
@@ -99,7 +117,7 @@ exports.getReco = function(req, res) {
       resultList.push(list);
       if(index == weights.length - 1) {
         var restList = [];
-        resultList = _.flatten(resultList);
+        resultList = _.uniq(_.flatten(resultList));
         resultList.forEach(function (id, index) {
           Restaurant.findOne({business_id: id}, function (err,r) {
             restList.push(r);

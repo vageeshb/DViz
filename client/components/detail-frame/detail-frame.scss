@@ -1,14 +1,15 @@
 #frame {
   position: absolute;
   top: 0;
-  left: 90%;
-  width: 110%;
+  left: 95%;
+  width: 120%;
   z-index: 10000;
   padding: 15px;
   height: calc(100vh - 100px);
   background-color: darken(color(primary), 15%) !important;
   overflow-y: auto;
   overflow-x: hidden;
+  transition: all 1s ease;
 
   .close {
     position:  absolute;
@@ -87,5 +88,108 @@
         font-weight: bold;
       }
     }
+    .panorama {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      margin: 0 auto;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      .left, .right {
+        position: absolute;
+        padding: 10px;
+        height: 400px;
+        line-height: 400px;
+        font-size: 32px;
+        color: color(white);
+        opacity: 0.7;
+        &:hover {
+          background: lighten(color(mediumGray), 10%);
+        }
+      }
+      .right {
+        right: 0;
+      }
+      .in,.out {
+        position: absolute;
+        top: 10px;
+        padding: 10px;
+        font-size: 24px;
+        text-align: center;
+        color: color(white);
+        opacity: 0.7;
+        &:hover {
+          background: lighten(color(mediumGray), 10%);
+        }
+      }
+      .in {
+        left: 40%;
+      }
+      .out {
+        left: 55%;
+      }
+    }
+    ul.amenities {
+      list-style-type: none;
+      padding: 0;
+      li {
+        cursor: pointer;
+        width: 90%;
+        padding: 5px 10px;
+        margin: 0 auto;
+        &:hover {
+          background: darken(color(primary), 10%);
+        }
+        span {
+          &:last-child {
+            float: right;
+          }
+          &.glyphicon-ok {
+            color: color(green);
+          }
+          &.glyphicon-remove {
+            color: color(red);
+          }
+        }
+      }
+    }
   }
+  .also-went-here {
+    list-style: none;
+    padding: 0;
+    li {
+      padding: 5px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid color(primary);
+      cursor: pointer;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &:hover {
+        background-color: darken(color(primary), 10%) !important;
+      }
+      a {
+        color: color(white);
+        h4 {
+          font-size: 16px;
+          margin: 0;
+          font-weight: bold;
+        }
+        p {
+          font-size: 12px;
+        }
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+#frame.ng-enter {
+  animation: fadeIn 1s;
+}
+#frame.ng-leave {
+  animation: fadeOut 1s;
 }

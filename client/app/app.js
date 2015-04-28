@@ -7,7 +7,8 @@ angular.module('dvizApp', [
   'ui.router',
   'ui.bootstrap',
   'uiGmapgoogle-maps',
-  'ui.bootstrap-slider'
+  'ui.bootstrap-slider',
+  'ngAnimate'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider

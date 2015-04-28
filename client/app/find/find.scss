@@ -1,3 +1,4 @@
+$pins: 10;
 #find-page {
   padding: 0;
   position: relative;
@@ -22,9 +23,10 @@
       
       width: 100%;
       height: 100%;
-      button {
+      a {
         margin: 0 auto;
         display: block;
+        width: 150px;
       }
       &.collapse {
         width: 5%;
@@ -63,16 +65,56 @@
       .result {
         padding: 5px 10px;
         cursor: pointer;
-        &:hover {
+        border-bottom: 1px solid darken(color(primary), 15%);
+        &:hover, &.active {
           background: lighten(#4D394B, 15%);
+        }
+        h4 {
+          font-weight: bold;
+        }
+        .address {
+          color: color(headPrimary);
+          font-size: fs(tertiary);
+        }
+        .checkin {
+          float: right;
+          margin-right: 15px;
+          span {
+            color: color(headPrimary);
+          }
         }
       }
       .filters {
-        border-bottom: 1px solid darken(#4D394B, 10%);
-        padding: 10px 0;
-        .slider {
-          max-width: 20%;
+        border-bottom: 1px solid darken(color(primary), 10%);
+        padding: 10px;
+        position: absolute;
+        width: calc(95% - 15px);
+        z-index: 999;
+        background: lighten(color(secondary), 10%);
+        height: 50px;
+        .filter-row {
+          span:last-child {
+            float: right;
+          }
         }
+        span {
+          margin-right: 10px;
+          .cust-slider {
+            display: inline-block;
+            width: 100px;
+            margin-left: 10px;
+            .slider {
+              width: 100%;
+              .slider-handle {
+                background: color(primary);
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+      .result-list {
+        margin-top: 50px;
       }
     }
     svg {
@@ -93,5 +135,45 @@
     div.row, div[class^="col"], .angular-google-map, .angular-google-map-container {
       height: 100%;
     }
+    .pin {
+      width: 30px;
+      height: 30px;
+      border-radius: 50% 50% 50% 0;
+      background: lighten(color(secondary), 10%);
+      color: color(primary);
+      font-weight: bold;
+      border: 5px solid lighten(color(primary), 10%);
+      text-align: center;
+      line-height: 20px;
+      margin: -20px 0 0 -20px;
+      animation: pulse 1s ease;
+    }
+    
   }
 }
+/* ANIMATIONS */
+@keyframes pulse {
+  40% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Angular Animations */
+/* .repeat-item.ng-enter,
+.repeat-item.ng-leave {
+  -webkit-transition:0.5s linear all;
+  transition:0.5s linear all;
+}
+
+.repeat-item.ng-enter,
+.repeat-item.ng-leave.ng-leave-active {
+  opacity:0;
+}
+.repeat-item.ng-leave,
+.repeat-item.ng-enter.ng-enter-active {
+  opacity:1;
+} */

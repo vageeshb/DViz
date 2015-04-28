@@ -26,5 +26,12 @@ angular.module('dvizApp')
           controller: 'reviews'
         }
       },
+      alsoWentHere: {
+        method: 'GET',
+        params: {
+          controller: 'alsoWentHere'
+        },
+        isArray: true
+      }
     });
   });

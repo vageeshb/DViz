@@ -14,7 +14,8 @@ $colors: (
   red: #e74c3c,
   darkRed: #c0392b,
 
-  primary: #5c4459, //orange
+  primary: #5c4459, //purple
+  secondary: #F16654, //orange
   tertiary: #453744,
 
   primaryLinkColor: #537DBE, //blue
@@ -38,6 +39,10 @@ $colors: (
 
   shadow: rgba(0,0,0, 0.1),
   shadowHover: rgba(0,0,0, 0.15),
+
+  pin-color-1: #453744,
+  pin-color-2: #F16654,
+
 );
 
 $fs: (

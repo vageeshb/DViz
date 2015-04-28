@@ -1,30 +1,152 @@
-.thing-form {
-    margin: 20px 0;
+/* ============================================================
+  PRIMARY STRUCTURE
+============================================================ */
+section {
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+}
+/* ============================================================
+  SECTIONS
+============================================================ */
+section.module:last-child {
+  margin-bottom: 0;
+}
+section.module h2 {
+  margin-bottom: 40px;
+  font-size: 30px;
+}
+section.module p {
+  margin-bottom: 40px;
+  font-size: 16px;
+  font-weight: 300;
+}
+section.module p:last-child {
+  margin-bottom: 0;
+}
+section.module.content {
+  padding: 120px 0;
+  text-align: center; 
+  img {
+    width: 300px;
+    height: auto;
+    margin-bottom: 60px;
+  }
+}
+section.module.parallax {
+  height: 100vh;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+section.module.parallax {
+  color: color(white);
+  text-align: center;
+  text-transform: uppercase;
+  h1 {
+    font-size: 48px;
+    line-height: 100vh;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: 36px;
+    line-height: 100vh;
+    font-weight: bold;
+  }
+  h3 {
+    font-size: 32px;
+    line-height: 100vh;
+    font-weight: bold; 
+  }
+  
+}
+section.module.parallax-1 {
+  background: url('/assets/images/home_1.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+section.module.parallax-2 {
+  background: url('/assets/images/home_2.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+section.module.parallax-3 {
+  background: url('/assets/images/home_3.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+section.module.parallax-4 {
+  background: url('/assets/images/home_4.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+section.module.parallax-5 {
+  background: url('/assets/images/home_5.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+section.module.parallax-6 {
+  background: url('/assets/images/home_6.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+section.module.parallax-7 {
+  background: url('/assets/images/home_7.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+section.module.parallax-8 {
+  background: url('/assets/images/home_8.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+section.module.parallax-9 {
+  background: url('/assets/images/home_9.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
-#banner {
-    border-bottom: none;
-    margin-top: -20px;
+@media all and (min-width: 600px) {
+  section.module h2 {
+    font-size: 36px;
+  }
+  section.module p {
+    font-size: 20px;
+  }
+  section.module.parallax {
+    h1 {
+      font-size: 84px;
+    }
+    h2 {
+      font-size: 76px;
+    }
+    h3 {
+      font-size: 68px;
+    }
+  }
+}
+@media all and (min-width: 960px) {
+  section.module.parallax h1 {
+    font-size: 96px;
+  }
 }
 
-#banner h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+ul.friends {
+  list-style: none;
+  li {
+    display: inline-block;
+    margin-right: 10px;
+    img {
+      width: 50px!important;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
 
-.hero-unit {
-    position: relative;
-    padding: 30px 15px;
-    color: #F5F5F5;
-    text-align: center;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-    background: #4393B9;
-}
-
-.footer {
-    text-align: center;
-    padding: 30px 0;
-    margin-top: 70px;
-    border-top: 1px solid #E5E5E5;
+p.end-credits {
+  font-size: 14px;
+  a {
+    color: color(white);
+    transition: all 0.5s ease;
+    &:hover {
+      color: color(secondary);
+      text-decoration: none;
+    }
+  }
 }

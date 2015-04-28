@@ -7,45 +7,87 @@
   <p class="categories">
     <span ng-repeat=" c in model.categories ">{{ c }}</span>
   </p>
-  <!-- <ul class="attributes">
-    <li ng-repeat="(k, v) in model.attributes">
-      {{k}} : <span class="glyphicon" ng-class="{ 'glyphicon-ok' : v==true, 'glyphicon-remove' : v==false }"></span>
-    </li>
-  </ul> -->
   <div class="reviews">
     <tabset>
-      <tab heading="Top Reviews">
-        <div class="review" ng-click="show = !show" ng-repeat="r in reviews.top">
-          <div class="meta">
-            <star-rating stars="r.stars"></star-rating>
-            <span class="date">{{ r.date }}</span>
-          </div>
-          <div class="text" ng-class="{ show: show }">
-            {{ r.text }}
-          </div>
-          <a href ng-click="show = !show">
-            <span ng-if="show == false">Show More</span>
-            <span ng-if="show == true">Show Less</span>
+      <tab heading="Reviews">
+        <tabset>
+          <tab heading="Top Reviews">
+            <div class="review" ng-repeat="r in reviews.top">
+              <div class="meta">
+                <strong>{{ r.name }}</strong> gave 
+                <star-rating stars="r.stars"></star-rating>
+                <span class="date">{{ r.date }}</span>
+              </div>
+              <div class="text" ng-click="show = !show"  ng-class="{ show: show }">
+                {{ r.text }}
+              </div>
+              <a href ng-click="show = !show">
+                <span ng-if="show == false">Show More</span>
+                <span ng-if="show == true">Show Less</span>
+              </a>
+            </div>  
+          </tab>
+          <tab heading="Recent Reviews">
+            <div class="review" ng-click="show = !show" ng-repeat="r in reviews.recent">
+              <div class="meta">
+                <strong>{{ r.name }}</strong> gave 
+                <star-rating stars="r.stars"></star-rating>
+                <span class="date">{{ r.date }}</span>
+              </div>
+              <div class="text" ng-class="{ show: show }">
+                {{ r.text }}
+              </div>
+              <a href ng-click="show = !show">
+                <span ng-if="show == false">Show More</span>
+                <span ng-if="show == true">Show Less</span>
+              </a>
+            </div>
+          </tab>
+        </tabset>
+      </tab>
+      
+      <tab heading="Also Went Here">
+        <h4>People who went here also went to these restaurants:</h4>
+        <ul class="also-went-here">
+          <li ng-repeat="r in alsoWentHere">
+            <a href ng-click="updateFrame(r)">
+              <h4>{{ r.name }}</h4>
+              <p>{{ r.full_address }}</p>
+            </a>
+          </li>
+        </ul>
+      </tab>
+      <tab heading="Street View">
+        <div class="panorama">
+          <a href class="right" ng-click="right()">
+            <span class="glyphicon glyphicon-chevron-right"></span>
           </a>
+          <a href class="left" ng-click="left()">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a href class="in" ng-click="zoomIn()">
+            <span class="glyphicon glyphicon-plus"></span>
+          </a>
+          <a href class="out" ng-click="zoomOut()">
+            <span class="glyphicon glyphicon-minus"></span>
+          </a>
+          <img ng-src="{{streetSrc}}">
         </div>
       </tab>
-      <tab heading="Recent Reviews">
-        <div class="review" ng-click="show = !show" ng-repeat="r in reviews.recent">
-          <div class="meta">
-            <star-rating stars="r.stars"></star-rating>
-            <span class="date">{{ r.date }}</span>
-          </div>
-          <div class="text" ng-class="{ show: show }">
-            {{ r.text }}
-          </div>
-          <a href ng-click="show = !show">
-            <span ng-if="show == false">Show More</span>
-            <span ng-if="show == true">Show Less</span>
-          </a>
-        </div>
-      </ul>
+      <tab heading="Amenities">
+        <ul class="amenities">
+          <li ng-repeat="(k, v) in model.attributes" ng-if="typeOf(v) == 'boolean'">
+              <span>{{k}}</span>
+              <span class="glyphicon" ng-class="{ 'glyphicon-ok' : v==true, 'glyphicon-remove' : v == false}"></span>
+            </span>
+            </span>
+          </li>
+          <li ng-repeat="(k, v) in model.attributes" ng-if="typeOf(v) == 'string' || typeOf(v) == 'number'">
+            <span>{{k}} : </span>
+            <span>{{toTitleCase(v)}}</span>
+          </li>
+        </ul>
       </tab>
-      <tab heading="Similar Restaurants">Placeholder</tab>
     </tabset>
   </div>
 </div>

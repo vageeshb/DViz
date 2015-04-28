@@ -9,7 +9,7 @@ angular.module('dvizApp')
         controller: 'FindCtrl',
         resolve: {
           communities: ['Data', function (Data) {
-            return Data.list();
+            return Data.list().$promise;
           }]
         }
       });
