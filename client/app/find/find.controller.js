@@ -142,10 +142,13 @@ angular.module('dvizApp')
           });
         } else {
           $scope.selected = null;
-          angular.forEach($scope.$parent.crumbs, function (c,index) {
-            if(c.title == model.name)
-              $scope.$parent.crumbs.splice(index, 1);
-          });
+          $scope.$parent.crumbs = [{
+              title: "Home",
+              link: "main"
+            }, {
+              title: "Find",
+              link: "find"
+            }];
           $scope.model = {};
         }
       };

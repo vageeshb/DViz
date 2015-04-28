@@ -80,10 +80,13 @@ angular.module('dvizApp')
         };
 
         scope.close = function () {
-          angular.forEach(scope.$parent.crumbs, function (c,index) {
-            if(c.title == scope.model.name)
-              scope.$parent.crumbs.splice(index, 1);
-          });
+          scope.$parent.crumbs = [{
+            title: "Home",
+            link: "main"
+          }, {
+            title: "Find",
+            link: "find"
+          }];
           scope.model = null;
           scope.$parent.selected = null;
         };
