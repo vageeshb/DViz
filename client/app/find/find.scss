@@ -91,8 +91,15 @@ $pins: 10;
         width: calc(95% - 15px);
         z-index: 999;
         background: lighten(color(secondary), 10%);
-        height: 50px;
+        height: 65px;
         .filter-row {
+          display: block;
+          margin-bottom: 5px;
+          &:last-child {
+            span:last-child {
+              float: left;
+            }
+          }
           span:last-child {
             float: right;
           }
@@ -114,7 +121,20 @@ $pins: 10;
         }
       }
       .result-list {
-        margin-top: 50px;
+        margin-top: 65px;
+        h4 {
+          span.title {
+            width: 90%;
+          }
+          span.price {
+            padding-right: 15px;
+            float: right;
+            display: inline-block;
+            width: 10%;
+            text-align: right;
+          }
+        }
+        
       }
     }
     svg {
@@ -177,3 +197,9 @@ $pins: 10;
 .repeat-item.ng-enter.ng-enter-active {
   opacity:1;
 } */
+
+span.green {
+  color: #27ae60;
+  font-size: 18px;
+  font-weight: bold;
+}

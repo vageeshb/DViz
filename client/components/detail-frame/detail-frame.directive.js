@@ -34,6 +34,10 @@ angular.module('dvizApp')
           }
         });
 
+        scope.getNumber = function (num) { 
+          return new Array(num);   
+        };
+
         scope.makeImage = function(model) {
           return 'https://maps.googleapis.com/maps/api/streetview?size=400x400&location=' +
               Math.round(model.latitude * 10000) / 10000 + ',' + Math.round(model.longitude * 10000) / 10000 + '&fov=' + scope.fov + '&heading=' + scope.heading + '&key=' + apiKey;

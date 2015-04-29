@@ -50,6 +50,13 @@ section.module.parallax {
     font-size: 48px;
     line-height: 100vh;
     font-weight: 700;
+    span.glyphicon {
+      font-size: 30px;
+    }
+    small {
+      color: darken(color(secondary), 10%);
+      font-weight: bold;
+    }
   }
   h2 {
     font-size: 36px;
@@ -110,6 +117,9 @@ section.module.parallax-9 {
   section.module.parallax {
     h1 {
       font-size: 84px;
+      span.glyphicon {
+        font-size: 56px;
+      }
     }
     h2 {
       font-size: 76px;

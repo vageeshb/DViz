@@ -4,6 +4,7 @@
     {{ model.name }}
   </h4>
   <p>{{ model.full_address }}</p>
+  <p><span class="green" ng-repeat="i in getNumber(model.attributes['Price Range']) track by $index">$</span></p>
   <p class="categories">
     <span ng-repeat=" c in model.categories ">{{ c }}</span>
   </p>

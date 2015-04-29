@@ -37,6 +37,7 @@ angular.module('dvizApp')
 
       $scope.model = {};
       $scope.selected = null;
+      $scope.priceSliderValue = 5;
       $scope.filteredMarkers = [];
 
       $scope.sliders = {
@@ -58,6 +59,7 @@ angular.module('dvizApp')
           angular.forEach($scope.results, function(result, index) {
             if(result.checkin_count >= newVal 
                 && result.stars >= $scope.ratingSliderValue
+                && result.attributes["Price Range"] <= $scope.priceSliderValue
                 && filteredResults.length < 10)
               filteredResults.push(result);
           });
@@ -72,6 +74,22 @@ angular.module('dvizApp')
           angular.forEach($scope.results, function(result, index) {
             if(result.stars >= newVal 
                 && result.checkin_count >= $scope.checkinSliderValue 
+                && result.attributes["Price Range"] <= $scope.priceSliderValue
+                && filteredResults.length < 10)
+              filteredResults.push(result);
+          });
+          $scope.filteredResults = filteredResults;
+          addMarkers($scope.filteredResults);
+        }
+      });
+
+      $scope.$watch('priceSliderValue', function (newVal,oldVal) {
+        if(newVal) {
+          var filteredResults = [];
+          angular.forEach($scope.results, function(result, index) {
+            if(result.stars >= $scope.ratingSliderValue
+                && result.checkin_count >= $scope.checkinSliderValue 
+                && result.attributes["Price Range"] <= newVal
                 && filteredResults.length < 10)
               filteredResults.push(result);
           });
@@ -125,6 +143,10 @@ angular.module('dvizApp')
           '-o-transform'      : 'scale(1)',
           'transform'         : 'scale(1)'
         });
+      };
+
+      $scope.getNumber = function (num) { 
+        return new Array(num);   
       };
 
       $scope.showFrame = function(model) {
